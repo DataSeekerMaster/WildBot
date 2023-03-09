@@ -1,0 +1,9 @@
+module.exports = {
+    token: "VOTRE-BOT-TOKEN",
+    prefix: "!",
+    owner: "000000000000000000",
+    botID: "000000000000000000",
+    botName: "VotreBot",
+    botAvatar: "https://mon_url_trop_cool.com/img/monimage.png",
+    lang_prefix: "[VotreBot] "
+}
