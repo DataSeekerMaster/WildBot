@@ -5,5 +5,6 @@ module.exports = {
     botID: "000000000000000000",
     botName: "VotreBot",
     botAvatar: "https://mon_url_trop_cool.com/img/monimage.png",
-    lang_prefix: "[VotreBot] "
+    ID_logsChannel: "000000000000000000",
+    ID_infosChannel: "000000000000000000"
 }
