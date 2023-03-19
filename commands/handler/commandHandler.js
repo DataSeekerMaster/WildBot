@@ -11,6 +11,8 @@ module.exports = async bot => {
 
         //Si le message n'est pas une commande, on ne fait rien
         if (message.content === "!groupe") return bot.commands.get('groupe').run(message);
+        if (message.content.startsWith("!github")) return bot.commands.get('github').run(message);
+        if (message.content.startsWith("!codewars")) return bot.commands.get('codewars').run(message);
     });
 
 }

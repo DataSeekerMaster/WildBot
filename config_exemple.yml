@@ -6,5 +6,10 @@ module.exports = {
     botName: "VotreBot",
     botAvatar: "https://mon_url_trop_cool.com/img/monimage.png",
     ID_logsChannel: "000000000000000000",
-    ID_infosChannel: "000000000000000000"
+    ID_infosChannel: "000000000000000000",
+    color_valid: "",
+    color_error: "",
+    color_default: "",
+    color_issue: "",
+    color_noperms: ""
 }
