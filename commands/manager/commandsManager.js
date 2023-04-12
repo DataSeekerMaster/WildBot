@@ -5,7 +5,9 @@ const fs = require('fs');
 const lang = require('../../language');
 
 //Compteur de commandes activées
-let commandsActivated = 0;
+let commandsStaffActivated = 0;
+let commandsBaseActivated = 0;
+let commandsTotalActivated = 0;
 
 module.exports = async bot => {
 
@@ -25,11 +27,12 @@ module.exports = async bot => {
 
         //Si la commande est correctement configurée, on l'ajoute au tableau des commandes
         bot.commands.set(command.name, command);
-        commandsActivated++;
+        commandsStaffActivated++;
+        commandsTotalActivated++;
         console.log(`${lang.prefix} Commande ${command.name} activée !`);
     });
 
-    console.log(`${lang.prefix} ${commandsActivated} commandes STAFF activées !`);
+    console.log(`${lang.prefix} ${commandsStaffActivated} commandes STAFF activées !`);
 
 
     
@@ -40,7 +43,7 @@ module.exports = async bot => {
 
 
     //On récupère tous les fichiers du dossier commands et on les filtres pour ne garder que les fichiers .js
-    fs.readdirSync("./commands/base").filter(f => f.endsWith(".js")).forEach(file => async file => {
+    fs.readdirSync("./commands/base").filter(f => f.endsWith(".js")).forEach(async file => {
 
         //On récupère le fichier
         let baseCommand = require(`../../commands/base/${file}`);
@@ -50,10 +53,11 @@ module.exports = async bot => {
 
 
         //Si la commande est correctement configurée, on l'ajoute au tableau des commandes
-        bot.commands.set(command.name, baseCommand);
-        commandsActivated++;
+        bot.commands.set(baseCommand.name, baseCommand);
+        commandsBaseActivated++;
+        commandsTotalActivated++;
 
     });
 
-    console.log(`${lang.prefix} ${commandsActivated} commandes activées !`);
+    console.log(`${lang.prefix} ${commandsBaseActivated} commandes de base activées !`);
 };
